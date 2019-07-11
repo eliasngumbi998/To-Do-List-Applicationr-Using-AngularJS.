@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+	<head>
+		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+		<style>
+			.finish{
+				text-decoration: line-through;
+				color:#ccc;
+			}
+			ul{
+				list-style-type:none;
+			}
+			ul li{
+				font-size:18px;
+			}
+		</style>
+	</head>
+<body ng-controller="myController">
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="https://sourcecodester.com">Sourcecodester</a>
+		</div>
+	</nav>	
+	<div class="col-md-3"></div>
+	<div class="col-md-6 well">
+		<h3 class="text-primary">JavaScript - To Do List Application Using AngularJS</h3>
+		<hr style="border-top:1px dotted #ccc;"/>
+		<div class="col-md-4">
+			<form name="form" ng-submit="addList()">
+				<div class="form-group">	
+					<input  class="form-control" type="text" placeholder="Enter list here..." ng-model="newlist" required="required" />
+				</div>
+				<center><button class="btn btn-primary" ng-disabled="form.$Invalid"><span class="glyphicon glyphicon-plus"></span> ADD</button></center>
+			</form>
+		</div>
+		<div class="col-md-8">
+			<button class="btn btn-danger pull-right" ng-click="clear()"><span class="glyphicon glyphicon-remove"></span> Clear List</button>
+			<br /><br /><br />
+			<ul>
+				<li ng-repeat="list in lists">
+					<input type="checkbox" ng-model="list.finish" />
+					<span ng-class="{finish:list.finish}">{{list.title}}</span>
+				</li>
+			</ul>
+		</div>
+	</div>	
+<script src="js/angular.js"></script>
+<script src="js/script.js"></script>	
+</body>
+</html>
